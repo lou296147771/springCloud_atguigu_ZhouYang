@@ -25,3 +25,8 @@ eureka:
     instance-id: microservicecloud-dept-8001
     prefer-ip-address: true     #访问路径可以显示IP地址
 
+info:
+  app.name: cyh-microservicecloud-8001
+  company.name: www.cyh.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
