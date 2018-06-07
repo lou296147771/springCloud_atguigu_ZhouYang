@@ -36,4 +36,10 @@ public class DeptController_Consumer {
         return restTemplate.getForObject(REST_URL_PREFIX + "/dept/list", List.class);
     }
 
+    @RequestMapping(value = "/consumer/dept/discovery")
+    public Object discovery() {
+        System.out.println("消费者调用服务发现");
+        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/discovery", Object.class);
+    }
+
 }
