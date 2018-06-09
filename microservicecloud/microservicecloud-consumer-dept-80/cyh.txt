@@ -1,0 +1,9 @@
+Ribbon负载均衡策略：
+    RoundRobinRule 轮询
+    RandomRule 随机
+    Retry 所有服务都正常的时候等价于轮询，当某些服务挂掉的时候会自动进行重试以获取可用的服务
+    AvailabilityFilteringRule
+    WeightedResponseTimeRule
+    BestAvailableRule
+    ZoneAvoidanceRule
+
