@@ -1,0 +1,33 @@
+server:
+  port: 8003
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.cyh.spring.cloud.entity
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    name: microservicecloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB03
+    username: root
+    password: root
+
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: microservicecloud-dept-8003
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app.name: cyh-microservicecloud-8003
+  company.name: www.cyh.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
