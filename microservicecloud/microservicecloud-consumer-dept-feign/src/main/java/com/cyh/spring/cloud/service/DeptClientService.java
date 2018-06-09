@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cyh.spring.cloud.entity.Dept;
 
-@FeignClient(value = "MICROSERVICECLOUD-DEPT")
+//@FeignClient(value = "MICROSERVICECLOUD-DEPT")
+@FeignClient(value = "MICROSERVICECLOUD-DEPT", fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface DeptClientService {
 
     @GetMapping("/dept/get/{id}")
