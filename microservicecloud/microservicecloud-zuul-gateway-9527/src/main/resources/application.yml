@@ -13,6 +13,14 @@ eureka:
     instance-id: gateway-9527.com
     prefer-ip-address: true 
 
+zuul:
+  prefix: /cyh
+  ignored-services: "*"                     # 屏蔽掉所有真实服务名称，只能通过映射名称访问，如 /mydept/
+  #ignored-services: microservicecloud-dept
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**                 # 将 /microservicecloud-dept/ 映射为 /mydept/
+
 info:
   app.name: cyh-microservicecloud
   company.name: www.cyh.com
@@ -20,3 +28,10 @@ info:
   build.version: $project.version$
 
 # 没有配置Zuul时，通过 http://myzuul.com:9527/microservicecloud-dept/dept/get/2 访问
+# 如果配置了zuul.routes 将 /microservicecloud-dept/ 映射为 /mydept/ 则下面两者均可访问
+#     http://myzuul.com:9527/mydept/dept/get/3
+#     http://myzuul.com:9527/microservicecloud-dept/dept/get/2
+# 如果配置了 ignored-services 将 microservicecloud-dept 屏蔽掉，则只能通过下面这种来访问
+#     http://myzuul.com:9527/mydept/dept/get/3
+# 如果还配置了 prefix 则应该像下面这样访问
+#     http://myzuul.com:9527/cyh/mydept/dept/get/3
