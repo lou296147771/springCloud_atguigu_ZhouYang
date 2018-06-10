@@ -25,6 +25,7 @@
         <module>microservicecloud-config-3344</module>
         <module>microservicecloud-config-client-3355</module>
         <module>microservicecloud-config-eureka-7001</module>
+        <module>microservicecloud-config-dept-8001</module>
     </modules>
 
     <properties>
